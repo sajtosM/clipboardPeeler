@@ -1,0 +1,31 @@
+{
+  "name": "clipboardpeeler",
+  "version": "1.0.0",
+  "description": "Clear all the trashy formatting from your copied text.",
+  "main": "peeler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node peeler.js -l 1000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajtosM/clipboardPeeler.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sajtosM/clipboardPeeler/issues"
+  },
+  "homepage": "https://github.com/sajtosM/clipboardPeeler#readme",
+  "dependencies": {
+    "clipboardy": "^3.0.0",
+    "meow": "^11.0.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^8.26.0"
+  },
+  "bin": {
+    "clipboardpeeler": "./peeler.js"
+  }
+}

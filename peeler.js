@@ -3,8 +3,7 @@ import meow from 'meow';
 import clipboard from 'clipboardy';
 
 
-
-/** @type {object}
+/** @type {meow}
  * CLI arguments
  */
 const cli = meow(`
@@ -29,7 +28,7 @@ const cli = meow(`
 /**
  * Peeler function. Clears the clipboard of unnecessary styling.
  *
- * @param {string} clearedText the last cleared text
+ * @param {string|undefined} clearedText the last cleared text
  * @return {string}
  */
 const peelText = (clearedText) => {
