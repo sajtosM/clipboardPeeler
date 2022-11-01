@@ -9,13 +9,13 @@ import clipboard from 'clipboardy';
  */
 const cli = meow(`
     Usage
-      $ peeler.js
+      $ clipboardpeeler
 
     Options
       --loop, -l Peel the
 
     Examples
-      $ peeler.js --loop 1000
+      $ clipboardpeeler --loop 1000
 `, {
     importMeta: import.meta,
     flags: {
@@ -25,20 +25,6 @@ const cli = meow(`
         }
     }
 });
-
-/**
- * Logic
- */
-
-if (!cli.flags.loop) {
-    peelText();
-} else {
-    let clearedText;
-    setInterval(function () {
-        clearedText = peelText(clearedText);
-    }, cli.flags.loop);
-    console.log('🏁 Started scheduler');
-}
 
 /**
  * Peeler function. Clears the clipboard of unnecessary styling.
@@ -57,3 +43,17 @@ const peelText = (clearedText) => {
     }
     return clearedText;
 };
+
+/**
+ * Logic
+ */
+
+if (!cli.flags.loop) {
+    peelText();
+} else {
+    let clearedText;
+    setInterval(function () {
+        clearedText = peelText(clearedText);
+    }, cli.flags.loop);
+    console.log('🏁 Started scheduler');
+}
