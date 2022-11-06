@@ -1,6 +1,6 @@
 # Clipboard Peeler
 
-Clear all the trashy formatting from your copied text.
+Clear all the trashy🗑️ formatting from your copied text.
 
 ## Usage
 
@@ -12,7 +12,8 @@ Use `clipboardpeeler -l 1000` to clear the styling every 1000 milliseconds.
       $ clipboardpeeler
 
     Options
-      --loop X, -l X   Peel every X milliseconds
+      --loop X, -l X    Peel every X milliseconds
+      --noLog, -nl      Dissable log
 
     Examples
       $ clipboardpeeler --loop 1000

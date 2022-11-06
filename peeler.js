@@ -7,20 +7,30 @@ import clipboard from 'clipboardy';
  * CLI arguments
  */
 const cli = meow(`
-    Usage
-      $ clipboardpeeler
+Usage
+$ clipboardpeeler
 
-    Options
-      --loop, -l Peel the
+Options
+--loop X, -l X    Peel every X milliseconds
+--noLog, -nl      Dissable log
+--verbose, -X     Verbose Logging
 
-    Examples
-      $ clipboardpeeler --loop 1000
+Examples
+$ clipboardpeeler --loop 1000
 `, {
     importMeta: import.meta,
     flags: {
         loop: {
             type: 'number',
             alias: 'l'
+        },
+        noLog: {
+            type: 'boolean',
+            alias: 'n'
+        },
+        verbose: {
+            type: 'boolean',
+            alias: 'X'
         }
     }
 });
@@ -34,18 +44,32 @@ const cli = meow(`
 const peelText = (clearedText) => {
     let clippedText = clipboard.readSync();
     if (clippedText !== clearedText) {
-        console.debug(`📋 ${clippedText}`);
+        console.log(`📋 ${clippedText}`);
         clearedText = '' + clippedText
             .trim()
             .normalize();
         clipboard.writeSync(clearedText);
+        console.debug('Write done');
     }
     return clearedText;
 };
 
 /**
+ * Logging config
+ */
+
+if (!cli.flags.verbose) {
+    console.debug = () => { };
+}
+if (cli.flags.noLog) {
+    console.log = () => { };
+}
+
+/**
  * Logic
  */
+
+console.debug(cli.flags);
 
 if (!cli.flags.loop) {
     peelText();
