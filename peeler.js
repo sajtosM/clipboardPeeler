@@ -43,7 +43,13 @@ $ clipboardpeeler --loop 1000
  */
 const peelText = (clearedText) => {
     let clippedText = clipboard.readSync();
-    if (clippedText !== clearedText) {
+    if (clippedText == '' && clippedText !== clearedText) {
+        // in case if we detect an empty clippedText assume that it is a picture or other binary and do not clear it
+        console.log('📋 🖼️');
+        clearedText = '' + clippedText
+            .trim()
+            .normalize();
+    } else if (clippedText !== clearedText) {
         console.log(`📋 ${clippedText}`);
         clearedText = '' + clippedText
             .trim()
