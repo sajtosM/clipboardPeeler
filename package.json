@@ -24,7 +24,7 @@
   "type": "module",
   "devDependencies": {
     "eslint": "^8.26.0",
-    "jest": "^29.2.2"
+    "jest": "^29.5.0"
   },
   "bin": {
     "clipboardpeeler": "./peeler.js"

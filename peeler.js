@@ -41,7 +41,7 @@ $ clipboardpeeler --loop 1000
  * @param {string|undefined} clearedText the last cleared text
  * @return {string}
  */
-const peelText = (clearedText) => {
+export const peelText = (clearedText) => {
     let clippedText = clipboard.readSync();
     if (clippedText == '' && clippedText !== clearedText) {
         // in case if we detect an empty clippedText assume that it is a picture or other binary and do not clear it
