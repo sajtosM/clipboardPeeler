@@ -1,6 +1,8 @@
 # Clipboard Peeler 🍌
 > Clear all the trashy🗑️ formatting from your copied text.
 
+> ⚠️(NO LONGER USED) No longer using this project. Found "(Pure Paste)[https://sindresorhus.com/pure-paste]", a free app by Sindre Sorhus that works better.⚠️
+
 I was having the problem that every time I copied something to word or outlook it took the formatting and the language of it that was most of the time not useful. So I made a tool that clears the formatting automatically.
 
 ## Usage
